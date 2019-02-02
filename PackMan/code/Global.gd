@@ -13,7 +13,7 @@ func _deferred_goto_scene(path):
 	current_scene.free()
 	if get_tree().paused :
 		get_tree().paused = false
-	var s = ResourceLoader.load(path)
-	current_scene = s.instance()
+	var scene = ResourceLoader.load(path)
+	current_scene = scene.instance()
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
