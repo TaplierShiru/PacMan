@@ -1,0 +1,254 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://field/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://code/walls.gd" type="Script" id=2]
+[ext_resource path="res://enemy/pinkgay/pinkgay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemy/red/red_ghost.tscn" type="PackedScene" id=4]
+[ext_resource path="res://code/red.gd" type="Script" id=5]
+[ext_resource path="res://enemy/blue/blue_ghost.tscn" type="PackedScene" id=6]
+[ext_resource path="res://code/blue_ghost.gd" type="Script" id=7]
+[ext_resource path="res://enemy/orange/orange_ghost.tscn" type="PackedScene" id=8]
+[ext_resource path="res://code/orange_ghost.gd" type="Script" id=9]
+[ext_resource path="res://pacman/pacman.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.87049, 7.31622 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.17993, 7.42381 )
+
+[node name="game" type="Node2D" index="0"]
+
+pause_mode = 1
+position = Vector2( 0, 15.9558 )
+_sections_unfolded = [ "Pause" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="." index="0"]
+
+editor/display_folded = true
+self_modulate = Color( 0.996094, 0.996094, 0.996094, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -16.0
+margin_right = 224.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 44.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "SCORE:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Navigation2D" type="Navigation2D" parent="." index="1"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="walls" parent="Navigation2D" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="pinkgay" parent="." index="2" instance=ExtResource( 3 )]
+
+pause_mode = 1
+position = Vector2( 96.9159, 114.006 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility" ]
+
+[node name="red_ghost" parent="." index="3" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( -16.5683, 114.551 )
+script = ExtResource( 5 )
+_sections_unfolded = [ "Pause", "Transform" ]
+
+[node name="blue_ghost" parent="." index="4" instance=ExtResource( 6 )]
+
+pause_mode = 1
+position = Vector2( 111.684, 122.587 )
+script = ExtResource( 7 )
+_sections_unfolded = [ "Pause", "Transform" ]
+
+[node name="orange_ghost" parent="." index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 123.939, 115.556 )
+script = ExtResource( 9 )
+
+[node name="pacman" parent="." index="6" instance=ExtResource( 10 )]
+
+position = Vector2( 111.527, 186.884 )
+_sections_unfolded = [ "Pause", "Visibility" ]
+
+[node name="score" type="Label" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 47.0
+margin_top = -13.0
+margin_right = 127.0
+margin_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="TimerForPink" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = true
+autostart = false
+
+[node name="searchForRed" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 0.4
+one_shot = false
+autostart = false
+
+[node name="searchForBlue" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="searchForOrange" type="Timer" parent="." index="11"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="searchForPink" type="Timer" parent="." index="12"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="TimeBust" type="Timer" parent="." index="13"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = false
+
+[node name="Pause_Points" type="Timer" parent="." index="14"]
+
+pause_mode = 2
+process_mode = 1
+wait_time = 1.4
+one_shot = true
+autostart = false
+_sections_unfolded = [ "Pause" ]
+
+[node name="teleport" type="Node2D" parent="." index="15"]
+
+editor/display_folded = true
+
+[node name="leftBoard" type="Area2D" parent="teleport" index="0"]
+
+position = Vector2( 5.14476, 116.093 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="left" type="CollisionShape2D" parent="teleport/leftBoard" index="0"]
+
+scale = Vector2( 0.737454, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="rightBoard" type="Area2D" parent="teleport" index="1"]
+
+position = Vector2( 218.535, 115.934 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="CollisionShape2D" parent="teleport/rightBoard" index="0"]
+
+scale = Vector2( 0.826979, 1 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[connection signal="area_entered" from="pinkgay" to="pinkgay" method="_on_pinkgay_area_entered"]
+
+[connection signal="area_entered" from="red_ghost" to="red_ghost" method="_on_red_ghost_area_entered"]
+
+[connection signal="area_entered" from="blue_ghost" to="blue_ghost" method="_on_blue_ghost_area_entered"]
+
+[connection signal="area_entered" from="orange_ghost" to="orange_ghost" method="_on_orange_ghost_area_entered"]
+
+[connection signal="timeout" from="TimerForPink" to="Navigation2D/walls" method="_on_TimerForPink_timeout"]
+
+[connection signal="timeout" from="searchForRed" to="red_ghost" method="_on_search_timeout"]
+
+[connection signal="timeout" from="searchForBlue" to="blue_ghost" method="_on_searchForBlue_timeout"]
+
+[connection signal="timeout" from="searchForOrange" to="orange_ghost" method="_on_searchForOrange_timeout"]
+
+[connection signal="timeout" from="searchForPink" to="pinkgay" method="_on_searchForPink_timeout"]
+
+[connection signal="timeout" from="TimeBust" to="Navigation2D/walls" method="_on_TimeBust_timeout"]
+
+[connection signal="timeout" from="Pause_Points" to="Navigation2D/walls" method="_on_Pause_Points_timeout"]
+
+[connection signal="area_entered" from="teleport/leftBoard" to="Navigation2D/walls" method="_on_leftBoard_area_entered"]
+
+[connection signal="area_entered" from="teleport/rightBoard" to="Navigation2D/walls" method="_on_rightBoard_area_entered"]
+
+

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://enemy/eyes.png" type="Texture" id=1]
+
+[node name="eyes" type="Node2D" index="0"]
+
+[node name="look" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+_sections_unfolded = [ "Animation", "Transform" ]
+
+
