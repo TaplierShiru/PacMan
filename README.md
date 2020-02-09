@@ -1,3 +1,3 @@
 # Pac Man
-Trying to do Pac-Man
-Made on Godot engine. For playing Pac-Man run launchPac-Man.exe
+Simple implementation of Pac-Man on Godot engine.
+For playing Pac-Man run launchPac-Man.exe
