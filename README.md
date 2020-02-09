@@ -1,3 +1,3 @@
-# PackMan
+# Pac Man
 Trying to do Pac-Man
-Made on Godot engine, you can try play just run file  launchPac-Man.exe
+Made on Godot engine. For playing Pac-Man run launchPac-Man.exe
